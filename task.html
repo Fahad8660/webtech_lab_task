@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Global News Today - Dark Theme</title>
+
+<style>
+/* Reset & Body */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #1e1e2f;
+    color: #f0f0f0;
+    line-height: 1.6;
+}
+
+/* Header */
+header {
+    background: #3a3f58;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 32px;
+}
+
+header p {
+    margin: 5px 0 0 0;
+    font-size: 16px;
+    color: #d0d0e0;
+}
+
+/* Main container */
+main {
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 0 15px;
+}
+
+/* Articles */
+.news-article {
+    background: #2c2f45;
+    padding: 25px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+}
+
+.news-article h2 {
+    margin-top: 0;
+    font-size: 26px;
+    color: #ffcc00;
+}
+
+.news-article p {
+    font-size: 16px;
+    text-align: justify;
+    color: #e0e0e0;
+}
+
+/* Comment Section */
+.comment-section {
+    background: #2c2f45;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 50px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.comment-section h3 {
+    margin-top: 0;
+    color: #ffcc00;
+}
+
+/* Stats */
+.stats-container {
+    background: #3a3f58;
+    padding: 15px 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    color: #f0f0f0;
+}
+
+/* Inputs */
+input, textarea {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0;
+    border-radius: 8px;
+    border: 1px solid #555;
+    font-size: 14px;
+    background: #1e1e2f;
+    color: #f0f0f0;
+}
+
+textarea { resize: vertical; }
+
+/* Button */
+button {
+    background: #ffcc00;
+    color: #1e1e2f;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
+    cursor: pointer;
+    transition: background 0.3s, color 0.3s;
+}
+
+button:hover {
+    background: #e6b800;
+    color: #000;
+}
+
+/* Error Messages */
+.error {
+    color: #ff6666;
+    font-size: 12px;
+}
+
+/* Stars */
+.star-container { margin: 10px 0; }
+.star-rating {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+}
+
+.star-rating span {
+    font-size: 28px;
+    cursor: pointer;
+    color: #888;
+    margin-left: 5px;
+    transition: color 0.2s;
+}
+
+.star-rating span.selected {
+    color: gold;
+}
+
+/* Comments List */
+.comment-list {
+    margin-top: 20px;
+}
+
+.comment-box {
+    background: #3a3f58;
+    padding: 15px 18px;
+    border-radius: 8px;
+    margin-bottom: 12px;
+    border-left: 4px solid #ffcc00;
+}
+
+.comment-box strong {
+    color: #ffcc00;
+}
+
+.comment-box p {
+    margin: 5px 0;
+    font-size: 14px;
+    color: #f0f0f0;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>Global News Today</h1>
+    <p>Reliable news and analysis from around the world</p>
+</header>
+
+<main>
+    <!-- ARTICLE 1 -->
+    <article class="news-article">
+        <h2>Slowing Global Health Gains: A Wake-Up Call</h2>
+        <p>Despite decades of progress in global health, recent statistics reveal an alarming slowdown in health improvements worldwide...</p>
+    </article>
+
+    <!-- COMMENT SYSTEM 1 -->
+    <section class="comment-section">
+        <div class="stats-container">
+            <h3>Reader Engagement</h3>
+            <p><strong>Total Comments:</strong> <span id="total1">0</span></p>
+            <p><strong>Average Rating:</strong> <span id="avg1">0</span></p>
+        </div>
+
+        <h3>Leave a Comment</h3>
+        <form id="form1">
+            <input type="text" id="name1" placeholder="Your Name *">
+            <small id="nameErr1" class="error"></small>
+
+            <input type="text" id="email1" placeholder="Email (Optional)">
+            <small id="emailErr1" class="error"></small>
+
+            <textarea id="comment1" placeholder="Your Comment *"></textarea>
+            <small id="commentErr1" class="error"></small>
+
+            <div class="star-container">
+                <label>Rate This Article:</label>
+                <div class="star-rating" id="stars1">
+                    <span data-s="5">★</span>
+                    <span data-s="4">★</span>
+                    <span data-s="3">★</span>
+                    <span data-s="2">★</span>
+                    <span data-s="1">★</span>
+                </div>
+                <p>Selected Rating: <span id="rate1">0</span></p>
+            </div>
+
+            <button type="submit">Submit Comment</button>
+        </form>
+
+        <div id="list1" class="comment-list"></div>
+    </section>
+
+    <!-- ARTICLE 2 -->
+    <article class="news-article">
+        <h2>Multimedia Journalism Transforming Digital Storytelling</h2>
+        <p>Digital news agencies are increasingly adopting video, infographics, and interactive tools to enhance storytelling...</p>
+    </article>
+
+    <!-- COMMENT SYSTEM 2 -->
+    <section class="comment-section">
+        <div class="stats-container">
+            <h3>Reader Engagement</h3>
+            <p><strong>Total Comments:</strong> <span id="total2">0</span></p>
+            <p><strong>Average Rating:</strong> <span id="avg2">0</span></p>
+        </div>
+
+        <h3>Leave a Comment</h3>
+        <form id="form2">
+            <input type="text" id="name2" placeholder="Your Name *">
+            <small id="nameErr2" class="error"></small>
+
+            <input type="text" id="email2" placeholder="Email (Optional)">
+            <small id="emailErr2" class="error"></small>
+
+            <textarea id="comment2" placeholder="Your Comment *"></textarea>
+            <small id="commentErr2" class="error"></small>
+
+            <div class="star-container">
+                <label>Rate This Article:</label>
+                <div class="star-rating" id="stars2">
+                    <span data-s="5">★</span>
+                    <span data-s="4">★</span>
+                    <span data-s="3">★</span>
+                    <span data-s="2">★</span>
+                    <span data-s="1">★</span>
+                </div>
+                <p>Selected Rating: <span id="rate2">0</span></p>
+            </div>
+
+            <button type="submit">Submit Comment</button>
+        </form>
+
+        <div id="list2" class="comment-list"></div>
+    </section>
+</main>
+
+<script>
+// Arrays
+let comments1 = [], ratings1 = [];
+let comments2 = [], ratings2 = [];
+
+// Setup Stars
+function setupStars(sectionId, displayId, ratingArray) {
+    const stars = document.querySelectorAll(`#${sectionId} span`);
+
+    stars.forEach(star => {
+        star.onclick = function () {
+            let rating = parseInt(this.dataset.s);
+            ratingArray[0] = rating;
+
+            document.getElementById(displayId).textContent = rating;
+
+            stars.forEach(s => s.classList.remove("selected"));
+
+            stars.forEach(s => {
+                if (parseInt(s.dataset.s) <= rating) {
+                    s.classList.add("selected");
+                }
+            });
+        };
+    });
+}
+
+setupStars("stars1", "rate1", ratings1);
+setupStars("stars2", "rate2", ratings2);
+
+// Form Setup
+function setupForm(formId, nameId, emailId, commentId, errN, errE, errC, listId, totalId, avgId, commentArray, ratingArray) {
+    document.getElementById(formId).onsubmit = function (e) {
+        e.preventDefault();
+
+        let name = document.getElementById(nameId).value.trim();
+        let email = document.getElementById(emailId).value.trim();
+        let comment = document.getElementById(commentId).value.trim();
+
+        document.getElementById(errN).textContent = "";
+        document.getElementById(errE).textContent = "";
+        document.getElementById(errC).textContent = "";
+
+        let valid = true;
+
+        if (name.length < 2 || name.length > 50) {
+            document.getElementById(errN).textContent = "Name should be 2–50 chars";
+            valid = false;
+        }
+
+        if (email.length > 0 && !email.includes("@")) {
+            document.getElementById(errE).textContent = "Invalid email";
+            valid = false;
+        }
+
+        if (comment.length < 10 || comment.length > 500) {
+            document.getElementById(errC).textContent = "Comment should be 10–500 chars";
+            valid = false;
+        }
+
+        if (!valid) return;
+
+        let rating = ratingArray[0] || 0;
+
+        commentArray.push([name, email, comment, rating]);
+
+        document.getElementById(totalId).textContent = commentArray.length;
+
+        let validRatings = commentArray.map(c => c[3]).filter(r => r > 0);
+        let avg = validRatings.length > 0
+            ? (validRatings.reduce((a, b) => a + b, 0) / validRatings.length).toFixed(1)
+            : 0;
+
+        document.getElementById(avgId).textContent = avg;
+
+        let div = document.createElement("div");
+        div.className = "comment-box";
+
+        div.innerHTML = `
+            <strong>${name}</strong> (${email || "No Email"})
+            <p>${comment}</p>
+            <p>Rating: ${rating > 0 ? rating : "No Rating"}</p>
+        `;
+
+        document.getElementById(listId).appendChild(div);
+
+        ratingArray[0] = 0;
+
+        this.reset();
+        document.getElementById(displayId).textContent = 0;
+    };
+}
+
+setupForm("form1", "name1", "email1", "comment1", "nameErr1", "emailErr1", "commentErr1", "list1", "total1", "avg1", comments1, ratings1);
+setupForm("form2", "name2", "email2", "comment2", "nameErr2", "emailErr2", "commentErr2", "list2", "total2", "avg2", comments2, ratings2);
+</script>
+
+</body>
+</html>
